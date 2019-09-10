@@ -34,7 +34,10 @@ a.left.brand-logo {
 a {
     text-decoration: none;
     color: white;
+    
 }
+
+
 
 i.large.material-icons {
     display: inline-block;
@@ -63,4 +66,12 @@ div.signup {
     text-align: center;
     padding: 4px;
     margin: 10px;
+}
+
+div.signin:hover {
+    background-color: #ba8ed3;
+}
+
+div.signup:hover {
+    background-color: #ba8ed3;
 }

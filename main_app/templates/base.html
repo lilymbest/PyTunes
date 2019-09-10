@@ -14,13 +14,13 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">MusicCollector</a></li>
+          <li><a href="{% url 'home' %}" class="left brand-logo">MusicCollector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/mymusic">My Collection</a></li>
+          <li><a href="{% url 'music' %}">My Collection</a></li>
         </ul>
         <ul>
-        <li><a href="/discover">Discover</a></li>
+        <li><a href="{% url 'discover' %}">Discover</a></li>
         </ul>
       </div>
     </nav>

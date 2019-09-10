@@ -83,3 +83,11 @@ a.add-song {
     margin: 10px;
     align-self: end;
 }
+
+div.card {
+    background-color: #d2a3ee;
+    text-align: center;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+}

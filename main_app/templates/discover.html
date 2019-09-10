@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<a href="/mymusic/new">Add Song</a>
+<div class="card">
+        <div class="card-content">
+          <span class="card-title">{{ songs.name }}</span>
+          <p>Artist: {{ songs.artist }}</p>
+          <p>Album: {{ songs.album }}</p>
+          <p>Rating: {{ songs.rating }}</p>
+        </div>
+      </div>
 {% endblock %}

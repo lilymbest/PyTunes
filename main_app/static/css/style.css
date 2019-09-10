@@ -57,7 +57,6 @@ div.signin {
     text-align: center;
     padding: 4px;
     margin: 10px;
-    align-self: end;
 }
 
 div.signup {
@@ -74,4 +73,13 @@ div.signin:hover {
 
 div.signup:hover {
     background-color: #ba8ed3;
+}
+
+a.add-song {
+    background-color: #d2a3ee;
+    border-radius: 25px;
+    text-align: center;
+    padding: 4px;
+    margin: 10px;
+    align-self: end;
 }

@@ -6,3 +6,9 @@ def home(request):
 
 def mymusic(request):
     return render(request, 'collection.html')
+
+def discover(request):
+    return render(request, 'discover.html')
+
+def new(request):
+    return render(request, 'new.html')

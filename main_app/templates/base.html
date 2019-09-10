@@ -6,18 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Music Collection</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;MusicCollector</a></li>
+          <li><a href="/" class="left brand-logo"><i class="large material-icons">library_music</i>MusicCollector</a></li>
         </ul>
         <ul class="right">
           <li><a href="/mymusic">My Collection</a></li>
+        </ul>
+        <ul>
+        <li><a href="/discover">Discover</a></li>
         </ul>
       </div>
     </nav>
@@ -25,9 +28,12 @@
   <main class="container">
     {% block content %}
     {% endblock %}
+    <i class="large material-icons" id="circle">wifi_tethering</i>
+    <div class= signin><a>Sign In</a></div>
+    <div class= signup><a>Sign Up</a></div>
   </main>
   <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2019 Cat Collector &nbsp;</div>
+    <div class="right">All Rights Reserved, &copy; 2019 Music Collector &nbsp;</div>
   </footer>
 </body>
 </html>

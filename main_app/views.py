@@ -22,3 +22,7 @@ def new(request):
 def song_detail(request, song_id):
     song = Song.objects.get(id=song_id)
     return render(request, 'mymusic/details.html', { 'song': song })
+
+def profile(request):
+    song = Song.objects.all()
+    return render(request, 'registration/profile.html',{ 'song': song })

@@ -18,17 +18,18 @@
             <li><a href="{% url 'discover' %}">Discover</a></li>
         </ul>
         <ul class="right">
-            <li><a href="{% url 'music' %}">My Collection</a></li>
+            <li><a href="{% url 'music' %}">PyTunes</a></li>
           </ul>
+          <ul>
+              <li><a href="{% url 'profile' %}">Profile</a></li>
+              </ul>
+          <ul>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
         {% else %}
         <ul>
             <li><a href="{% url 'home' %}" class="left brand-logo">MusicCollector</a></li>
           </ul>
-        {% endif %}
-        {% if user.is_authenticated %}
-        <ul>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
-        </ul>
         {% endif %}
       </div>
     </nav>

@@ -91,3 +91,25 @@ div.card {
     width: 300px;
     height: 300px;
 }
+
+h1 {
+    color: white;
+    text-align: center;
+    background-color: #d2a3ee;
+}
+
+/* div.pytuneswhite {
+    border-color: #d2a3ee;
+    background-color: #d2a3ee;
+    border-radius: 180px;
+    padding: 0;
+    height: 175px;
+    width: 175px;
+} */
+
+img {
+    align-self: center;
+    justify-self: center;
+    height: 185px;
+    width: 185px;
+}

@@ -30,7 +30,7 @@ ___
 
 ![ERD](main_app/static/images/ERD.png)
 
-[Trello]()
+[Trello](https://trello.com/invite/pytunes/a294b996eadedca7b8dd01a99ce5be67)
 ### Technologies used
 ___
 - Python

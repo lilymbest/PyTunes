@@ -3,3 +3,4 @@ spotipy-test.py
 temp-data/
 main_app/__pycache__
 musicdb/__pycache__
+__pycache__

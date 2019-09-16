@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #f7ffe0;
 }
   
 main {
@@ -22,7 +23,9 @@ li {
 nav {
     background-color: #d2a3ee;
     display: grid;
-    grid-template-columns: 25vmin auto 25vmin 25vmin
+    grid-template-columns: 25vmin auto 25vmin 25vmin;
+    border-radius: 20px;
+    
 }
 
 a.left.brand-logo {
@@ -96,6 +99,7 @@ h1 {
     color: white;
     text-align: center;
     background-color: #d2a3ee;
+    border-radius: 60px;
 }
 
 img {

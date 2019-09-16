@@ -10,6 +10,6 @@ urlpatterns = [
   path('mymusic/favorite_tracks', views.favorite_tracks, name="favorite_tracks"),
   path('mymusic/<int:song_id>/', views.song_detail, name='details'),
   path('accounts/profile/', views.profile, name='profile'),
-  path('accounts/signup', views.signup, name='signup'),
-
+  path('accounts/signup/', views.signup, name='signup'),
 ]
+

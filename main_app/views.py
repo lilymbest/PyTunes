@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from main_app.models import Song
+from main_app.models import Song, Profile
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -52,9 +52,11 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return render(request, 'registration/profile.html')
+            return render(request, 'registration/profile.`html')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+

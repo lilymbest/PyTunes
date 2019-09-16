@@ -121,4 +121,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGOUT_REDIRECT_URL = '/'
-SIGNUP_REDIRECT_URL = 'accounts/profile'
+SIGNUP_REDIRECT_URL = 'spotify/link-user/'

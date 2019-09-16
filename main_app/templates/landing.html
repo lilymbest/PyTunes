@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+{% if user.is_authenticated %}
+<h1>Logged In!</h1>
+{% else %}
 <div id="landing">
         <h1>PyTunes</h1>
         <div class="pytuneswhite">
         <img src="static/images/pytuneswhite.png" alt="">
         </div>
-        <div class= signin><a>Sign In</a></div>
-        <div class= signup><a>Sign Up</a></div>
+        <a href="accounts/login"><div class= signin>Sign In</div></a>
+        <a href="accounts/signup"><div class= signup>Sign Up</div></a>
 </div>
+{% endif %}
 {% endblock %}

@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if user.is_authenticated %}
+<div class="sidenav">
+    <a href="#about">Playlists</a>
+    <a href="#services">Upload</a>
+    <a href="#clients">Following</a>
+    <a href="#contact">Contact</a>
+</div>
+
 <main class="collection">
     {% for song in song %}
     <a href="/mymusic/{{ song.id }}">
@@ -16,5 +22,4 @@
         {% endfor %}
 </main>
 <a href="/mymusic/new" class="add-song">Add Song</a>
-{% endif %}
 {% endblock %}

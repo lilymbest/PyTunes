@@ -113,3 +113,8 @@ img {
     height: 185px;
     width: 185px;
 }
+
+#fetch {
+    text-align: center;
+    color: black;
+}

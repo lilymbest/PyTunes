@@ -2,5 +2,7 @@
 {% block content %}
 {% if user.is_authenticated %}
 
+<a  id="fetch" href="{% url 'fetch-code'%}">GET code and auth user</a>
+
 {% endif %}
 {% endblock %}

@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #f7ffe0;
 }
   
 main {
@@ -108,12 +109,4 @@ img {
 a.add-song {
     justify-self: center;
     align-self: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-} */
->>>>>>> e6ad4f1aea5f43fd2c2dfecd8971c9fe57167055
-=======
-}
->>>>>>> 471bf3ff1d8da1c42e6ad53132d3a7a25272a0fa

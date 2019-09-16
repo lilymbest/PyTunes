@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     songs = Song.objects.all()
-    return render(request, 'landing.html',{ 'songs': songs })
+    return render(request, 'landing.html')
 
 @login_required
 def mymusic(request):

@@ -35,7 +35,7 @@ def handle_code(request):
   profile = createProfile(r, spotify_user_info, request.user)
   print(profile)
 
-  return render(request, 'data.html', {'response': spotify_user_info})
+  return render(request, 'profile.html', {'response': spotify_user_info})
 
 
 def createProfile(token_responce, user_info, user):

@@ -43,7 +43,8 @@ def song_detail(request, song_id):
 @login_required
 def profile(request):
     song = Song.objects.all()
-    return render(request, 'registration/profile.html',{ 'song': song })
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'registration/profile.html',{ 'profile': profile }, { 'song': song })
 
 def signup(request):
     error_message = ''

@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    access_token = models.CharField(max_length=300)
-    refresh_token = models.CharField(max_length=300)
-    spotify_id = models.CharField(max_length=100) 
-    spotify_display_name = models.CharField(max_length=100)
-    spotify_product = models.CharField(max_length=100)
-    image_url = models.CharField(max_length=200)
+    access_token = models.CharField(max_length=1000)
+    refresh_token = models.CharField(max_length=1000)
+    spotify_id = models.CharField(max_length=1000) 
+    spotify_display_name = models.CharField(max_length=1000)
+    spotify_product = models.CharField(max_length=1000)
+    image_url = models.CharField(max_length=1000)
 
 class Song(models.Model):
     objects = models.Manager()

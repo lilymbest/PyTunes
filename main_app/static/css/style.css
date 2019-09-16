@@ -1,4 +1,4 @@
-body {
+/* body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -108,31 +108,4 @@ img {
 a.add-song {
     justify-self: center;
     align-self: center;
-}
-
-div.sidenav {
-    height: 83.5%;
-    width: 160px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #d2a3ee;
-    overflow-x: hidden;
-    margin-top: 130px;
-    margin-left: 8px;
-}
-  
-div.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-    display: block;
-    margin-top: 12px;
-  }
-  
-div.sidenav a:hover {
-    color: #f1f1f1;
-}
-  
+} */

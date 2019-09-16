@@ -8,6 +8,8 @@
   <title>My Music Collection</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
 </head>
 <body>
   <header class="navbar-fixed">
@@ -15,7 +17,7 @@
       <div class="nav-wrapper">
         {% if user.is_authenticated %}
         <ul>
-            <li><a href="{% url 'discover' %}">Discover</a></li>
+            <li><a href="{% url 'discover' %}" class="breadcrumb">Discover</a></li>
         </ul>
           <ul>
               <li><a href="{% url 'profile' %}">My Profile</a></li>

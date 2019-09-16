@@ -110,3 +110,23 @@ a.add-song {
     justify-self: center;
     align-self: center;
 }
+
+div.sidenav {
+    width: 130px;
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #d2a3ee;
+    overflow-x: hidden;
+    padding: 8px 0;
+    margin-top: 130px;
+  }
+  
+div.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+  }

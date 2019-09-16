@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="sidenav">
-    <a href="#about">Playlists</a>
-    <a href="#services">Upload</a>
-    <a href="#clients">Following</a>
-    <a href="#contact">Contact</a>
+    <a href="/mymusic/playlists">Playlists</a>
+    <a href="/mymusic/new">Upload</a>
+    <a href="/mymusic/favorite_tracks">Favorite Tracks</a>
 </div>
-
 <main class="collection">
     {% for song in song %}
     <a href="/mymusic/{{ song.id }}">
@@ -15,11 +13,9 @@
             <span class="card-title">{{ song.name }}</span>
                 <p>Artist: {{ song.artist }}</p>
                 <p>Album: {{ song.album }}</p>
-                <p>Rating: {{ song.rating }}</p>
             </div>
         </div>
     </a>
-        {% endfor %}
+    {% endfor %}
 </main>
-<a href="/mymusic/new" class="add-song">Add Song</a>
 {% endblock %}

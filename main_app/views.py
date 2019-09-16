@@ -17,6 +17,16 @@ def mymusic(request):
     return render(request, 'mymusic/collection.html',{ 'song': song })
 
 @login_required
+def playlists(request):
+    song = Song.objects.all()
+    return render(request, 'mymusic/playlists.html',{ 'song': song })
+
+@login_required
+def favorite_tracks(request):
+    song = Song.objects.all()
+    return render(request, 'mymusic/favorite_tracks.html', { 'song': song })
+
+@login_required
 def discover(request):
     song = Song.objects.all()
     return render(request, 'discover.html',{ 'song': song })

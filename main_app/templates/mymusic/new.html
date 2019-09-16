@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="sidenav">
+    <a href="/mymusic/playlists">Playlists</a>
+    <a href="/mymusic/new">Upload</a>
+    <a href="/mymusic/favorite_tracks">Favorite Tracks</a>
+</div>
 <form action="" method="post">
 {% csrf_token %}
 <input type="text" name="name">
 <input type="text" name="artist">
-<input type="text" name="album">
-<input type="text" name="rating">
+<input type="text" name="album">>
 <input type="submit" class="btn" value="Add Song">
 <input type="hidden" name="next" value="{{ next }}">
 </form>

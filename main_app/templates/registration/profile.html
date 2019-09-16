@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% comment %} temporary link to auth Spotify {% endcomment %}
-{% if user.is_authenticated %}
-<a  id="fetch" href="{% url 'fetch-code'%}">GET code and auth user</a>
-{% endif %}
-
 <div class="sidenav">
     <a href="/mymusic/playlists">Playlists</a>
     <a href="/mymusic/new">Upload</a>
@@ -27,3 +22,4 @@
     {% endfor %}
 </main>
 {% endblock %}
+

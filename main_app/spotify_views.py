@@ -31,11 +31,8 @@ def handle_code(request):
   }
   spotify_user_info = requests.get('https://api.spotify.com/v1/me', headers=header)
   spotify_user_info = json.loads(spotify_user_info.text)
-  print(spotify_user_info)
-  profile = createProfile(r, spotify_user_info, request.user)
-  print(profile)
-
-  return render(request, 'profile.html', {'response': spotify_user_info})
+  createProfile(r, spotify_user_info, request.user)
+  return redirect('profile')
 
 
 def createProfile(token_responce, user_info, user):

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if response.error %}
+<p>{{response.error}}</p>
+{% else %}
+<p>{{response}}</p>
+{% endif %}
+{% endblock %}

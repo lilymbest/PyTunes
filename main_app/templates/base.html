@@ -15,8 +15,9 @@
       <div class="nav-wrapper">
         {% if user.is_authenticated %}
         <ul>
-            <li><a href="{% url 'discover' %}" class="breadcrumb">Discover</a></li>
+            <li><a href="{% url 'discover' %}" class="">Discover</a></li>
         </ul>
+        <a  id="fetch" href="{% url 'fetch-code'%}">GET code and auth user</a>
           <ul>
               <li><a href="{% url 'profile' %}">My Profile</a></li>
               </ul>

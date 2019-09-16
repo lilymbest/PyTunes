@@ -44,7 +44,7 @@ def song_detail(request, song_id):
 def profile(request):
     song = Song.objects.all()
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'registration/profile.html',{ 'profile': profile }, { 'song': song })
+    return render(request, 'registration/profile.html',{ 'profile': profile, 'song': song })
 
 def signup(request):
     error_message = ''

@@ -11,8 +11,8 @@
     <a href="/mymusic/new">Upload</a>
     <a href="/mymusic/favorite_tracks">Favorite Tracks</a>
 </div>
-
 <h1>{{ profile.spotify_display_name }}</h1>
+
 <main class="collection">
     {% for song in song %}
     <a href="/mymusic/{{ song.id }}">

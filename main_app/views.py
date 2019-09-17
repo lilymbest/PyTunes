@@ -7,6 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+def base(request):
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'base.html',{ 'profile': profile })
+
 def home(request):
     return render(request, 'landing.html')
 

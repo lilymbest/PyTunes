@@ -3,7 +3,26 @@ from main_app.models import Song, Profile
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
-from env import *
+import os
+
+SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
+SPOTIFY_CLIENT_SECRET = os.environ['SPOTIFY_CLIENT_SECRET']
+SPOTIFY_REDIRECT_URI_ENCODED = os.environ['SPOTIFY_REDIRECT_URI_ENCODED']
+
+def renew_token(request):
+  profile = Profile.objects.get(user=request.user)
+  renew_url = 'https://accounts.spotify.com/api/token'
+  body = {
+    'grant_type': 'refresh_token',
+    'refresh_token': profile.refresh_token,
+    "client_id": SPOTIFY_CLIENT_ID,
+    "client_secret": SPOTIFY_CLIENT_SECRET
+  }
+  r = requests.post(renew_url, data=body)
+  r = json.loads(r.text)
+  profile.access_token = r['access_token']
+  profile.save()
+  return redirect('profile')
 
 
 def link_user(request):

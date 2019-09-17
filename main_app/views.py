@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+import requests, json
 
 # Create your views here.
 def home(request):
@@ -25,10 +26,24 @@ def favorite_tracks(request):
     song = Song.objects.all()
     return render(request, 'mymusic/favorite_tracks.html', { 'song': song })
 
+
+
+######## 
 @login_required
 def discover(request):
-    song = Song.objects.all()
-    return render(request, 'discover.html',{ 'song': song })
+    profile = Profile.objects.get(user=request.user)
+    access_token = profile.access_token
+    body = request.POST
+    header = {
+        "Authorization": f"Bearer {access_token}"
+    }
+    payload = {
+        "q": body['query'],
+        "type": body['type'],        
+    }
+    results = requests.get('https://api.spotify.com/v1/search', params=payload, headers=header)
+    results = json.loads(results.text)
+    return render(request, 'discover.html',{'results': results, "profile": profile })
 
 @login_required
 def new(request):
@@ -52,7 +67,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return render(request, 'registration/profile.`html')
+            return render(request, 'registration/profile.html')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()

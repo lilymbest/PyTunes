@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
+
+
+
+{% for item in results.artists.items %}
+<p> {{item}} </p>
+
+<hr>
+
+<div class="card">
+<div class="card-content">
+    <span class="card-title">{{ song.name }}</span>
+        <p>Artist: {{ item.name }}</p>
+        <p>id: {{ item.id }}</p>
+        <p>Rating: {{ song.rating }}</p>
+    </div>
+</div>
+
+{% endfor %}
+
+{% comment %} 
 {% for song in song %}
 <a href="/mymusic/{{ song.id }}">
 <div class="card">
@@ -11,5 +31,7 @@
     </div>
 </div>
 </a>
-{% endfor %}
+{% endfor %} {% endcomment %}
+
+
 {% endblock %}

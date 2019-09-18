@@ -14,9 +14,6 @@
     <nav>
       <div class="nav-wrapper">
         {% if user.is_authenticated %}
-        <ul>
-            <li><a href="{% url 'discover' %}" class="">Discover</a></li>
-        </ul>
           <ul>
               <li><a href="{% url 'profile' %}">{{ profile.spotify_display_name }}</a></li>
               </ul>

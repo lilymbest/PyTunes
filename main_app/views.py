@@ -57,7 +57,7 @@ def discover(request):
         results = results['tracks']
     if search_type == 'playlist':
         results = results['playlists']
-    return render(request, 'discover.html',{'results': results, "profile": profile })
+    return render(request, 'discover.html',{'results': results, "profile": profile, 'type': search_type })
 
 @login_required
 def new(request):

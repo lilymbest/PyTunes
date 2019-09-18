@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="sidenav">
-    <a href="/mymusic/favorite_tracks">Favorite Tracks</a>
+    <a href="{% url 'profile' %}">Favorite Tracks</a>
     <a href="/mymusic/new">Upload</a>
     <a href="/mymusic/uploads">My Uploads</a>
     <a href="{% url 'playlist_create' %}">New Playlist</a>
@@ -11,14 +11,14 @@
 <h1>{{ profile.spotify_display_name }}</h1>
 
 <main class="collection">
-    {% for playlists in playist %}
-    <a href="/mymusic/{{ song.id }}">
+    {% for playlists in playlists %}
+    <a href="/mymusic/{{ playlists.id }}">
         <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ playlist.name }}</span>
-                <p>{{ playlist.profile }}</p>
-                <p>{{ playlist.track }}</p>
-                <p>{{ playlist.description }}</p>
+            <span class="card-title">{{ playlists.name }}</span>
+                <p>{{ playlists.profile }}</p>
+                <p>{{ playlists.track }}</p>
+                <p>{{ playlists.description }}</p>
             </div>
         </div>
     </a>

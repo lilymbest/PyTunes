@@ -44,7 +44,15 @@
         <audio controls>
         <source src="{{ item.preview_url }}" />
         </audio>
-        <a href="{% url 'favorite_tracks' item.id %}">♡</a>
+        <form action="{% url 'save_track' %}" method="post">
+        <select name="playlist_id" id="playlist">
+            {% for playlist in playlists %}
+            <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" class="btn" value="Add To Playlist">
+        <input type="hidden" name="track_id" value="{{ item.id }}">
+    </form>
     </div>
 </div>
 {% endfor %}

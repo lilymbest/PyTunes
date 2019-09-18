@@ -10,9 +10,8 @@ import requests, json
 
 class PlaylistCreate(CreateView):
     model = Playlist
-    fields = ['name', 'description', 'profile', 'track']
-
-
+    fields = ['name', 'description']
+    success_url = '/accounts/profile'
 # Create your views here.
 def base(request):
     profile = Profile.objects.get(user=request.user)
@@ -26,13 +25,14 @@ def mymusic(request):
     return render(request, 'mymusic/collection.html')
 
 @login_required
-def favorite_tracks(request, track_id):
+def favorite_tracks(request):
     playlists = Playlist.objects.all()
     return render(request, 'mymusic/favorite_tracks.html', {'playlists': playlists})
 
 
 @login_required
 def discover(request):
+    playlists = Playlist.objects.all()
     if request.method == 'POST':
         profile = Profile.objects.get(user=request.user)
         access_token = profile.access_token
@@ -56,7 +56,7 @@ def discover(request):
             results = results['tracks']
         if search_type == 'playlist':
             results = results['playlists']
-        return render(request, 'discover.html',{'results': results, "profile": profile, 'type': search_type })
+        return render(request, 'discover.html',{'results': results, "profile": profile, 'type': search_type, 'playlists': playlists })
     else:
         return redirect('home')
 
@@ -64,10 +64,6 @@ def discover(request):
 @login_required
 def new(request):
     return render(request, 'mymusic/new.html')
-
-@login_required
-def detail(request, object_id):
-    return render(request, 'mymusic/details.html')
 
 @login_required
 def profile(request):

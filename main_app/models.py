@@ -19,3 +19,7 @@ class Song(models.Model):
     rating = models.IntegerField()
     def __str__(self):
         return self.name
+
+
+# class Playlist(models.Model):
+#     tracks = 

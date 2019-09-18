@@ -24,7 +24,7 @@ def mymusic(request):
     return render(request, 'mymusic/collection.html')
 
 @login_required
-def favorite_tracks(request, track_id):
+def favorite_tracks(request):
     playlists = Playlist.objects.all()
     return render(request, 'mymusic/favorite_tracks.html', {'playlists': playlists})
 

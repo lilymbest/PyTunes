@@ -1,5 +1,5 @@
 import base64, json, requests
-from main_app.models import Profile
+from main_app.models import Profile, Playlist
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
@@ -70,3 +70,23 @@ def createProfile(token_responce, user_info, user):
   )
   profile.save()
   return profile
+
+def save_track(request):
+  body = request.POST
+  track_id = body['track_id']
+  playlist_id = body['playlist_id']
+  profile = Profile.objects.get(user = request.user)
+  
+
+  access_token = profile.access_token
+  url = f"https://api.spotify.com/v1/tracks/{track_id}"
+  header ={
+    "Authorization": f"Bearer {access_token}"
+  }
+  results = requests.get(url, headers=header)
+  results = json.loads(results.text)
+  print(results)
+  playlist = Playlist.objects.get(id=playlist_id)
+  print(playlist)
+  
+  return redirect('profile')

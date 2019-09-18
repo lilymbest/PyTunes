@@ -8,7 +8,7 @@ urlpatterns = [
   path('mymusic/new', views.new, name='new'),
   path('mymusic/playlists', views.playlists, name='playlists'),
   path('mymusic/favorite_tracks', views.favorite_tracks, name="favorite_tracks"),
-  path('mymusic/<int:song_id>/', views.song_detail, name='details'),
+  path('mymusic/<int:song_id>/', views.detail, name='details'),
   path('accounts/profile/', views.profile, name='profile'),
   path('accounts/signup/', views.signup, name='signup'),
 ]

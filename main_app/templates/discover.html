@@ -37,6 +37,9 @@
         <img src="{{ item.images.0.url }}" alt="">
         <p>{{ item.artists.0.name }}</p>
         <p>Track Number: {{ item.track_number }}</p>
+        <audio controls>
+                <source src="{{ item.preview_url }}" />
+                </audio>
     </div>
 </div>
 <hr>

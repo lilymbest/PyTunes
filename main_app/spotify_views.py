@@ -1,5 +1,5 @@
 import base64, json, requests
-from main_app.models import Song, Profile
+from main_app.models import Profile
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView

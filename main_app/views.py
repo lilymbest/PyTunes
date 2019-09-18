@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main_app.models import Song, Profile
+from main_app.models import Profile, Track, Playlist, Artist
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.models import User
 from django.contrib.auth import login
@@ -17,18 +17,15 @@ def home(request):
 
 @login_required
 def mymusic(request):
-    song = Song.objects.all()
-    return render(request, 'mymusic/collection.html',{ 'song': song })
+    return render(request, 'mymusic/collection.html')
 
 @login_required
 def playlists(request):
-    song = Song.objects.all()
-    return render(request, 'mymusic/playlists.html',{ 'song': song })
+    return render(request, 'mymusic/playlists.html')
 
 @login_required
 def favorite_tracks(request):
-    song = Song.objects.all()
-    return render(request, 'mymusic/favorite_tracks.html', { 'song': song })
+    return render(request, 'mymusic/favorite_tracks.html')
 
 
 
@@ -64,15 +61,13 @@ def new(request):
     return render(request, 'mymusic/new.html')
 
 @login_required
-def song_detail(request, song_id):
-    song = Song.objects.get(id=song_id)
-    return render(request, 'mymusic/details.html', { 'song': song })
+def detail(request, object_id):
+    return render(request, 'mymusic/details.html')
 
 @login_required
 def profile(request):
-    song = Song.objects.all()
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'registration/profile.html',{ 'profile': profile, 'song': song })
+    return render(request, 'registration/profile.html',{ 'profile': profile})
 
 def signup(request):
     error_message = ''

@@ -11,13 +11,13 @@
 <h1>{{ profile.spotify_display_name }}</h1>
 
 <main class="collection">
-    {% for song in song %}
+    {% for playlists in playist %}
     <a href="/mymusic/{{ song.id }}">
         <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ song.name }}</span>
-                <p>Artist: {{ song.artist }}</p>
-                <p>Album: {{ song.album }}</p>
+            <span class="card-title">{{ playlist.name }}</span>
+                <p>{{ playlist.profile }}</p>
+                <p>{{ playlist.track }}</p>
             </div>
         </div>
     </a>

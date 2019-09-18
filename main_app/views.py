@@ -24,16 +24,11 @@ def mymusic(request):
     return render(request, 'mymusic/collection.html')
 
 @login_required
-def playlists(request):
-    return render(request, 'mymusic/playlists.html')
-
-@login_required
 def favorite_tracks(request, track_id):
-    return render(request, 'mymusic/favorite_tracks.html')
+    playlists = Playlist.objects.all()
+    return render(request, 'mymusic/favorite_tracks.html', {'playlists': playlists})
 
 
-
-######## 
 @login_required
 def discover(request):
     if request.method == 'POST':
@@ -63,9 +58,14 @@ def discover(request):
     else:
         return redirect('home')
 
+
 @login_required
 def new(request):
     return render(request, 'mymusic/new.html')
+
+@login_required
+def create(request):
+    return render(request, 'mymusic/create.html')
 
 @login_required
 def detail(request, object_id):

@@ -8,6 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 import requests, json
 
+# def AddFaveTrack(request, item.id):
+
 
 # Create your views here.
 def base(request):

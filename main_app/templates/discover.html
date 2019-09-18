@@ -5,7 +5,7 @@
 {% for item in results.items %}
 
 <a href=""></a>
-<div class="card-album">
+<div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
         <img src="{{ item.images.0.url }}" alt="">
@@ -19,7 +19,7 @@
 {% elif type == 'artist' %}
 {% for item in results.items %}
 
-<div class="card-artist">
+<div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
         <img src="{{ item.images.0.url }}" alt="">
@@ -35,7 +35,7 @@
 
 {% elif type == 'track' %}
 {% for item in results.items %}
-<div class="card-track">
+<div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
         <img src="{{ item.images.0.url }}" alt="">
@@ -44,7 +44,7 @@
         <audio controls>
         <source src="{{ item.preview_url }}" />
         </audio>
-        <a href="{% url 'favorite_tracks' %}">♡</a>
+        <a href="{% url 'favorite_tracks' item.id %}">♡</a>
     </div>
 </div>
 {% endfor %}

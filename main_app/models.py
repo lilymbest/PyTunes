@@ -11,11 +11,23 @@ class Profile(models.Model):
     spotify_product = models.CharField(max_length=1000)
     image_url = models.CharField(max_length=1000)
 
-class Song(models.Model):
-    objects = models.Manager()
-    name = models.CharField(max_length=100)
-    artist = models.CharField(max_length=100)
-    album = models.TextField(max_length=250)
-    rating = models.IntegerField()
-    def __str__(self):
-        return self.name
+class Artist(models.Model):
+    name = models.CharField(max_length=200)
+    spotify_id = models.CharField(max_length=1000)
+    followers = models.IntegerField()
+    image_url = models.CharField(max_length=1000)
+    
+class Album(models.Model):
+    name = models.CharField(max_length=200)
+    spotify_id = models.CharField(max_length=1000)
+
+class Track(models.Model):
+    name = models.CharField(max_length=200)
+    spotify_id = models.CharField(max_length=1000)
+    preview_url = models.CharField(max_length=1000)
+    duration_ms = models.IntegerField()
+    
+class Playlist(models.Model):
+    name = models.CharField(max_length=200)
+    profile = models.ForeignKey(Profile,  on_delete=models.CASCADE)
+    track = models.ForeignKey(Track,  on_delete=models.CASCADE)

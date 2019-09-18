@@ -1,6 +1,4 @@
-env.py
-spotipy-test.py
-temp-data/
+musicdb/.env
 main_app/__pycache__
 musicdb/__pycache__
 __pycache__

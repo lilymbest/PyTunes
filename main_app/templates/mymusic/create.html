@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="post">
+{% csrf_token %}
+<label for="">Playlist Name<input type="text" name="name" autocomplete="off"></label>
+<label for="">Description<input type="text" name="description" autocomplete="off"></label>
+<input type="submit" class="btn" value="Add Song">
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+{% endblock %}

@@ -8,9 +8,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 import requests, json
 
-# def AddFaveTrack(request, item.id):
-
-
+class PlaylistCreate(CreateView):
+    model = Playlist
+    fields = ['name', 'description']
+    success_url = '/accounts/profile'
 # Create your views here.
 def base(request):
     profile = Profile.objects.get(user=request.user)
@@ -31,6 +32,7 @@ def favorite_tracks(request):
 
 @login_required
 def discover(request):
+    playlists = Playlist.objects.all()
     if request.method == 'POST':
         profile = Profile.objects.get(user=request.user)
         access_token = profile.access_token
@@ -54,7 +56,7 @@ def discover(request):
             results = results['tracks']
         if search_type == 'playlist':
             results = results['playlists']
-        return render(request, 'discover.html',{'results': results, "profile": profile, 'type': search_type })
+        return render(request, 'discover.html',{'results': results, "profile": profile, 'type': search_type, 'playlists': playlists })
     else:
         return redirect('home')
 
@@ -64,17 +66,10 @@ def new(request):
     return render(request, 'mymusic/new.html')
 
 @login_required
-def create(request):
-    return render(request, 'mymusic/create.html')
-
-@login_required
-def detail(request, object_id):
-    return render(request, 'mymusic/details.html')
-
-@login_required
 def profile(request):
+    playlists = Playlist.objects.all()
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'registration/profile.html',{ 'profile': profile})
+    return render(request, 'registration/profile.html',{ 'profile': profile, 'playlists': playlists})
 
 def signup(request):
     error_message = ''

@@ -8,7 +8,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 import requests, json
 
-# def AddFaveTrack(request, item.id):
+class PlaylistCreate(CreateView):
+    model = Playlist
+    fields = ['name', 'description', 'profile', 'track']
 
 
 # Create your views here.
@@ -64,17 +66,14 @@ def new(request):
     return render(request, 'mymusic/new.html')
 
 @login_required
-def create(request):
-    return render(request, 'mymusic/create.html')
-
-@login_required
 def detail(request, object_id):
     return render(request, 'mymusic/details.html')
 
 @login_required
 def profile(request):
+    playlists = Playlist.objects.all()
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'registration/profile.html',{ 'profile': profile})
+    return render(request, 'registration/profile.html',{ 'profile': profile, 'playlists': playlists})
 
 def signup(request):
     error_message = ''

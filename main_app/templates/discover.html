@@ -3,7 +3,7 @@
 
 {% if type == 'album' %}
 {% for item in results.items %}
-<a href="{ }"></a>
+<a href=""></a>
 <div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
@@ -38,8 +38,9 @@
         <p>{{ item.artists.0.name }}</p>
         <p>Track Number: {{ item.track_number }}</p>
         <audio controls>
-                <source src="{{ item.preview_url }}" />
-                </audio>
+        <source src="{{ item.preview_url }}" />
+        </audio>
+        <a href="{% url 'favorite_tracks' %}">♡</a>
     </div>
 </div>
 <hr>
@@ -50,10 +51,10 @@
 <div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
-        <p>{{ item }}</p>
         <img src="{{ item.images.0.url }}" alt="">
-        <p>Release Date: {{ item.release_date }}</p>
-        <p>Tracks: {{ item.total_tracks }}</p>
+        <p>Owner: {{ item.owner.display_name }}</p>
+        <p>Tracks: {{ item.tracks.total }}</p>
+        <a href="{{ item.external_urls.spotify }}">Open In Spotify</a>
     </div>
 </div>
 <hr>

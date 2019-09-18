@@ -3,30 +3,34 @@
 
 {% if type == 'album' %}
 {% for item in results.items %}
+
 <a href=""></a>
 <div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
-        <p>{{ item.artist }}</p>
         <img src="{{ item.images.0.url }}" alt="">
+        <p>{{ item.artists.0.name }}</p>
         <p>Release Date: {{ item.release_date }}</p>
         <p>Tracks: {{ item.total_tracks }}</p>
     </div>
 </div>
-<hr>
 {% endfor %}
 
 {% elif type == 'artist' %}
 {% for item in results.items %}
+
 <div class="card">
 <div class="card-content">
     <span class="card-title">{{ item.name }}</span>
         <img src="{{ item.images.0.url }}" alt="">
         <p>Followers: {{ item.followers.total }}</p>
-        <p>Genres: {{ item.genres.0 }}, {{ item.genres.1 }}, {{ item.genres.2 }}</p>
+        {% if item.genres|length > 0 %}
+        <p>Genre: {{ item.genres.1 }}, {{ item.genres.2 }}</p>
+        {% else %}
+        <p>Genre: Unknown</p>
+        {% endif %}
     </div>
 </div>
-<hr>
 {% endfor %}
 
 {% elif type == 'track' %}
@@ -43,21 +47,5 @@
         <a href="{% url 'favorite_tracks' %}">♡</a>
     </div>
 </div>
-<hr>
 {% endfor %}
-
-{% elif type == 'playlist' %}
-{% for item in results.items %}
-<div class="card">
-<div class="card-content">
-    <span class="card-title">{{ item.name }}</span>
-        <img src="{{ item.images.0.url }}" alt="">
-        <p>Owner: {{ item.owner.display_name }}</p>
-        <p>Tracks: {{ item.tracks.total }}</p>
-        <a href="{{ item.external_urls.spotify }}">Open In Spotify</a>
-    </div>
-</div>
-<hr>
-{% endfor %}
-{% endif %}
 {% endblock %}

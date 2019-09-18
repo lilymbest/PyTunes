@@ -127,3 +127,6 @@ LOGIN_REDIRECT_URL = '/spotify/renew-token/'
 
 LOGOUT_REDIRECT_URL = '/'
 SIGNUP_REDIRECT_URL = 'spotify/link-user/'
+
+import django_heroku
+django_heroku.settings(locals())

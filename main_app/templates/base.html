@@ -18,7 +18,7 @@
             <li><a href="{% url 'discover' %}" class="">Discover</a></li>
         </ul>
           <ul>
-              <li><a href="{% url 'profile' %}">My Profile</a></li>
+              <li><a href="{% url 'profile' %}">{{ profile.spotify_display_name }}</a></li>
               </ul>
           <ul>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
@@ -31,9 +31,14 @@
       </div>
       <form action="/discover/" method="post">
       {% csrf_token %}
-      <input type="text" name="type">
+      <select name="type" id="type">
+        <option value="artist">Artist</option>
+        <option value="album">Album</option>
+        <option value="track">Tracks</option>
+        <option value="playlist">Playlists</option>
+      </select>
       <input type="text" name="query">
-      <button type="submit"> Search</button>
+      <button type="submit">Search</button>
       </form>
     </nav>
   </header>

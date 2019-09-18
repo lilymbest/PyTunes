@@ -1,38 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-
+{% if type == 'album' %}
 {% for item in results.items %}
-<p> {{item}} </p>
-
-<hr>
-
 <div class="card">
 <div class="card-content">
+    <span class="card-title">{{ item.name }}</span>
+        <p>{{ item.artist }}</p>
+        <img src="{{ item.images.0.url }}" alt="">
+        <p>Release Date: {{ item.release_date }}</p>
+        <p>Tracks: {{ item.total_tracks }}</p>
+    </div>
+</div>
+<hr>
+{% endfor %}
+
+{% elif type == 'artist' %}
+{% for item in results.items %}
+<div class="card">
+<div class="card-content">
+<<<<<<< HEAD
 <img src="{{item.images.0.url}}" alt="">
     <span class="card-title">{{ song.name }}</span>
         <p>Artist: {{ item.name }}</p>
         <p>id: {{ item.id }}</p>
         <p>Rating: {{ song.rating }}</p>
+=======
+    <span class="card-title">{{ item.name }}</span>
+        <img src="{{ item.images.0.url }}" alt="">
+        <p>Followers: {{ item.followers.total }}</p>
+        <p>Genres: {{ item.genres.0 }}, {{ item.genres.1 }}, {{ item.genres.2 }}</p>
+>>>>>>> 8271537a327b5f47546b2553873bc1776df1fe32
     </div>
 </div>
-
+<hr>
 {% endfor %}
 
-{% comment %} 
-{% for song in song %}
-<a href="/mymusic/{{ song.id }}">
+{% elif type == 'track' %}
+{% for item in results.items %}
 <div class="card">
 <div class="card-content">
-    <span class="card-title">{{ song.name }}</span>
-        <p>Artist: {{ song.artist }}</p>
-        <p>Album: {{ song.album }}</p>
-        <p>Rating: {{ song.rating }}</p>
+    <span class="card-title">{{ item.name }}</span>
+        <img src="{{ item.images.0.url }}" alt="">
+        <p>{{ item.artists.0.name }}</p>
+        <p>Track Number: {{ item.track_number }}</p>
     </div>
 </div>
-</a>
-{% endfor %} {% endcomment %}
+<hr>
+{% endfor %}
 
-
+{% elif type == 'playlist' %}
+{% for item in results.items %}
+<div class="card">
+<div class="card-content">
+    <span class="card-title">{{ item.name }}</span>
+        <p>{{ item }}</p>
+        <img src="{{ item.images.0.url }}" alt="">
+        <p>Release Date: {{ item.release_date }}</p>
+        <p>Tracks: {{ item.total_tracks }}</p>
+    </div>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
 {% endblock %}

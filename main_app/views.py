@@ -8,6 +8,10 @@ from django.contrib.auth.decorators import login_required
 import requests, json
 
 # Create your views here.
+def base(request):
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'base.html',{ 'profile': profile })
+
 def home(request):
     return render(request, 'landing.html')
 
@@ -53,7 +57,7 @@ def discover(request):
         results = results['tracks']
     if search_type == 'playlist':
         results = results['playlists']
-    return render(request, 'discover.html',{'results': results, "profile": profile })
+    return render(request, 'discover.html',{'results': results, "profile": profile, 'type': search_type })
 
 @login_required
 def new(request):

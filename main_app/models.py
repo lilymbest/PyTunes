@@ -39,5 +39,6 @@ class Track(models.Model):
     
 class Playlist(models.Model):
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=300)
     profile = models.ForeignKey(Profile,  on_delete=models.CASCADE)
     track = models.ForeignKey(Track,  on_delete=models.CASCADE)

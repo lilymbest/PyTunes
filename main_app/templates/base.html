@@ -14,32 +14,29 @@
     <nav>
       <div class="nav-wrapper">
         {% if user.is_authenticated %}
-        <ul>
-            <li><a href="{% url 'discover' %}" class="">Discover</a></li>
-        </ul>
           <ul>
               <li><a href="{% url 'profile' %}">{{ profile.spotify_display_name }}</a></li>
               </ul>
           <ul>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             </ul>
+            <form action="/discover/" method="post">
+              {% csrf_token %}
+              <select name="type" id="type">
+                <option value="artist">Artist</option>
+                <option value="album">Album</option>
+                <option value="track">Tracks</option>
+              </select>
+              <input type="text" name="query" autocomplete="off">
+              <button type="submit">Search</button>
+              </form>
         {% else %}
         <ul>
             <li><a href="{% url 'home' %}" class="left brand-logo">PyTunes</a></li>
           </ul>
         {% endif %}
       </div>
-      <form action="/discover/" method="post">
-      {% csrf_token %}
-      <select name="type" id="type">
-        <option value="artist">Artist</option>
-        <option value="album">Album</option>
-        <option value="track">Tracks</option>
-        <option value="playlist">Playlists</option>
-      </select>
-      <input type="text" name="query">
-      <button type="submit">Search</button>
-      </form>
+      
     </nav>
   </header>
   <main class="container">

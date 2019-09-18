@@ -49,13 +49,13 @@ def discover(request):
     results = requests.get('https://api.spotify.com/v1/search', params=payload, headers=header)
     results = json.loads(results.text)
     print(results)
-    if search_type == 'artists':
+    if search_type == 'artist':
         results = results['artists']
-    if search_type == 'albums':
+    if search_type == 'album':
         results = results['albums']
-    if search_type == 'tracks':
+    if search_type == 'track':
         results = results['tracks']
-    if search_type == 'playlists':
+    if search_type == 'playlist':
         results = results['playlists']
     return render(request, 'discover.html',{'results': results, "profile": profile })
 

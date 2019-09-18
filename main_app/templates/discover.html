@@ -5,15 +5,14 @@
 
 {% for item in results.items %}
 <p> {{item}} </p>
-
 <hr>
-
 <div class="card">
 <div class="card-content">
-    <span class="card-title">{{ song.name }}</span>
-        <p>Artist: {{ item.name }}</p>
-        <p>id: {{ item.id }}</p>
-        <p>Rating: {{ song.rating }}</p>
+    <span class="card-title">{{ results.name }}</span>
+        <p>{{ item.name }}</p>
+        <p>id: {{ item.album.name }}</p>
+        <p>{{ item.release_date }}</p>
+        <!-- <img src="{{ item.images[0].url }}" alt=""> -->
     </div>
 </div>
 

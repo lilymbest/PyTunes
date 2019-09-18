@@ -19,18 +19,10 @@
 {% for item in results.items %}
 <div class="card">
 <div class="card-content">
-<<<<<<< HEAD
-<img src="{{item.images.0.url}}" alt="">
-    <span class="card-title">{{ song.name }}</span>
-        <p>Artist: {{ item.name }}</p>
-        <p>id: {{ item.id }}</p>
-        <p>Rating: {{ song.rating }}</p>
-=======
     <span class="card-title">{{ item.name }}</span>
         <img src="{{ item.images.0.url }}" alt="">
         <p>Followers: {{ item.followers.total }}</p>
         <p>Genres: {{ item.genres.0 }}, {{ item.genres.1 }}, {{ item.genres.2 }}</p>
->>>>>>> 8271537a327b5f47546b2553873bc1776df1fe32
     </div>
 </div>
 <hr>

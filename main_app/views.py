@@ -15,7 +15,7 @@ class PlaylistCreate(CreateView):
 
 class PlaylistDelete(DeleteView):
     model = Playlist
-    success_url = 'home'
+    success_url = '/accounts/profile'
     
 # Create your views here.
 def base(request):
@@ -45,7 +45,8 @@ def new(request):
 def playlist_details(request, playlist_id):
     profile = Profile.objects.get(user=request.user)
     playlist = Playlist.objects.get(id=playlist_id)
-    return render(request, 'main_app/playlist_detail.html', {'playlist': playlist_id, 'profile': profile })
+    playlists = Playlist.objects.all()
+    return render(request, 'main_app/playlist_detail.html', {'playlist': playlist, 'profile': profile, 'playlists': playlists })
 
 @login_required
 def discover(request):
@@ -91,7 +92,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return render(request, 'registration/profile.html')
+            return redirect('fetch-code')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()

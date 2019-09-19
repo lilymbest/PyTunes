@@ -6,10 +6,14 @@
         <div class="card">
         <div class="card-content">
             <span class="card-title">{{ playlist.name }}</span>
-                <p>{{ playlist.profile }}</p>
-                <p>{{ playlist.track }}</p>
                 <p>{{ playlist.description }}</p>
+                <hr>
+                {% for track in playlist.tracks.all %}
+                <p>{{ track.name }}</p>
+                {% endfor %}
             </div>
-            <a href="{% url 'playlist_delete' playlist.id %}">Delete</a>
+            <hr>
+            <a href="{% url 'playlist_delete' playlist.id %}">Delete Playlist</a>
         </div>
-        {% endblock %}
+        
+{% endblock %}

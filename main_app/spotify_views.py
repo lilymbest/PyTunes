@@ -8,7 +8,7 @@ import os
 SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
 SPOTIFY_CLIENT_SECRET = os.environ['SPOTIFY_CLIENT_SECRET']
 SPOTIFY_REDIRECT_URI_ENCODED = os.environ['SPOTIFY_REDIRECT_URI_ENCODED']
-
+SPOTIFY_REDIRECT_URI = os.environ['SPOTIFY_REDIRECT_URI']
 def renew_token(request):
   profile = Profile.objects.get(user=request.user)
   renew_url = 'https://accounts.spotify.com/api/token'
@@ -92,7 +92,7 @@ def save_track(request):
 
 
 
-def createTrack(data):
+def createTrack(data):    
   track = Track(
     name = data['name'],
     spotify_id = data['id'],

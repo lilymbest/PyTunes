@@ -9,6 +9,7 @@ SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
 SPOTIFY_CLIENT_SECRET = os.environ['SPOTIFY_CLIENT_SECRET']
 SPOTIFY_REDIRECT_URI_ENCODED = os.environ['SPOTIFY_REDIRECT_URI_ENCODED']
 SPOTIFY_REDIRECT_URI = os.environ['SPOTIFY_REDIRECT_URI']
+
 def renew_token(request):
   profile = Profile.objects.get(user=request.user)
   renew_url = 'https://accounts.spotify.com/api/token'
@@ -38,13 +39,14 @@ def handle_code(request):
   body = { 
     "grant_type": "authorization_code",
     "code": str(code),
-    "redirect_uri": SPOTIFY_REDIRECT_URI,
+    "redirect_uri": "http://localhost:8000/spotify/receive-code/",
     "client_id": SPOTIFY_CLIENT_ID,
     "client_secret": SPOTIFY_CLIENT_SECRET
   }
   # requests access token and refresh token from Spotify 
   r = requests.post(token_url, data=body)
   r = json.loads(r.text)
+  print(r)
   header = {
     "Authorization": f"Bearer {r['access_token']}"
   }

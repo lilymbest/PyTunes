@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="sidenav">
-    <a href="{% url 'profile' %}">Favorite Tracks</a>
-    <a href="/mymusic/new">Upload</a>
-    <a href="/mymusic/uploads">My Uploads</a>
-    <a href="{% url 'playlist_create' %}">New Playlist</a>
-</div>
 <img src="../../{{ profile.image_url }}" alt="">
 <h1>{{ profile.spotify_display_name }}</h1>
 

@@ -38,22 +38,6 @@ def home(request):
     return render(request, 'landing.html')
 
 @login_required
-def mymusic(request):
-    profile = Profile.objects.get(user=request.user)
-    return render(request, 'mymusic/collection.html', { 'profile': profile })
-
-@login_required
-def favorite_tracks(request):
-    profile = Profile.objects.get(user=request.user)
-    playlists = Playlist.objects.all()
-    return render(request, 'mymusic/favorite_tracks.html', {'playlists': playlists, 'profile': profile })
-
-@login_required
-def new(request):
-    profile = Profile.objects.get(user=request.user)
-    return render(request, 'mymusic/new.html', { 'profile': profile })
-
-@login_required
 def playlist_details(request, playlist_id):
     profile = Profile.objects.get(user=request.user)
     playlist = Playlist.objects.get(id=playlist_id)
@@ -93,8 +77,7 @@ def discover(request):
 @login_required
 def profile(request):
     profile = Profile.objects.get(user=request.user)
-    playlists = Playlist.objects.filter(profile=profile)
-    return render(request, 'registration/profile.html',{ 'profile': profile, 'playlists': playlists})
+    return render(request, 'registration/profile.html', { 'profile': profile, 'playlists': playlists })
 
 def signup(request):
     error_message = ''

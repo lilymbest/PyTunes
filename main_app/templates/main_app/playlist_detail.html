@@ -13,6 +13,7 @@
                 {% endfor %}
             </div>
             <hr>
+            <a href="{% url 'playlist_update' playlist.id %}">Edit Playlist</a>
             <a href="{% url 'playlist_delete' playlist.id %}">Delete Playlist</a>
         </div>
         

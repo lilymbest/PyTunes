@@ -31,7 +31,7 @@ class Album(models.Model):
 class Track(models.Model):
     name = models.CharField(max_length=200)
     spotify_id = models.CharField(max_length=1000)
-    preview_url = models.CharField(max_length=1000)
+    preview_url = models.CharField(max_length=1000, blank=True)
     artist_name = models.CharField(max_length=200)
     duration_ms = models.IntegerField()
     track_number = models.IntegerField()

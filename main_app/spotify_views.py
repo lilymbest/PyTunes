@@ -1,9 +1,7 @@
-import base64, json, requests
+import base64, json, requests, os
 from main_app.models import Profile, Playlist, Track
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
-import os
 
 SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
 SPOTIFY_CLIENT_SECRET = os.environ['SPOTIFY_CLIENT_SECRET']

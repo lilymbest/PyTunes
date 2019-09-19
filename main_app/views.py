@@ -12,6 +12,7 @@ class PlaylistCreate(CreateView):
     model = Playlist
     fields = ['name', 'description']
     success_url = '/accounts/profile'
+    
 # Create your views here.
 def base(request):
     profile = Profile.objects.get(user=request.user)

@@ -11,14 +11,15 @@
 <h1>{{ profile.spotify_display_name }}</h1>
 
 <main class="collection">
-    {% for playlists in playlists %}
-    <a href="/mymusic/{{ playlists.id }}">
+    {% for playlist in playlists %}
+    <a href="/mymusic/{{ playlist.id }}">
         <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ playlists.name }}</span>
-                <p>{{ playlists.profile }}</p>
-                <p>{{ playlists.track }}</p>
-                <p>{{ playlists.description }}</p>
+            <span class="card-title">{{ playlist.name }}</span>
+                <p>{{ playlist.description }}</p>
+                {% for track in playlist.tracks.all %}
+                <p>{{ track.name }}</p>
+                {% endfor %}
             </div>
         </div>
     </a>

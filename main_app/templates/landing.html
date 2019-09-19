@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<h1>Logged In!</h1>
+<form action="/discover/" method="post">
+        {% csrf_token %}
+        <select name="type" id="type">
+          <option value="artist">Artist</option>
+          <option value="album">Album</option>
+          <option value="track">Tracks</option>
+        </select>
+        <input type="text" name="query" autocomplete="off" required>
+        <button type="submit">Search</button>
+        </form>
 {% else %}
 <div id="landing">
         <h1>PyTunes</h1>

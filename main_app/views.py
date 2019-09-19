@@ -12,6 +12,10 @@ class PlaylistCreate(CreateView):
     model = Playlist
     fields = ['name', 'description']
     success_url = '/accounts/profile'
+
+class PlaylistDelete(DeleteView):
+    model = Playlist
+    success_url = 'home'
 # Create your views here.
 def base(request):
     profile = Profile.objects.get(user=request.user)
@@ -22,13 +26,25 @@ def home(request):
 
 @login_required
 def mymusic(request):
-    return render(request, 'mymusic/collection.html')
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'mymusic/collection.html', { 'profile': profile })
 
 @login_required
 def favorite_tracks(request):
+    profile = Profile.objects.get(user=request.user)
     playlists = Playlist.objects.all()
-    return render(request, 'mymusic/favorite_tracks.html', {'playlists': playlists})
+    return render(request, 'mymusic/favorite_tracks.html', {'playlists': playlists, 'profile': profile })
 
+@login_required
+def new(request):
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'mymusic/new.html', { 'profile': profile })
+
+@login_required
+def playlist_details(request, playlist_id):
+    profile = Profile.objects.get(user=request.user)
+    playlist = Playlist.objects.get(id=playlist_id)
+    return render(request, 'main_app/playlist_detail.html', {'playlist': playlist_id, 'profile': profile })
 
 @login_required
 def discover(request):
@@ -60,10 +76,6 @@ def discover(request):
     else:
         return redirect('home')
 
-
-@login_required
-def new(request):
-    return render(request, 'mymusic/new.html')
 
 @login_required
 def profile(request):

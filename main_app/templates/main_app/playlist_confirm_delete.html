@@ -1,0 +1,5 @@
+<form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete" class="btn">
+        <a href="{% url 'playlist_detail' playlist.id %}">Cancel</a>
+</form>

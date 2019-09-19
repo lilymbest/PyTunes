@@ -38,7 +38,7 @@ def handle_code(request):
   body = { 
     "grant_type": "authorization_code",
     "code": str(code),
-    "redirect_uri": "http://localhost:8000/spotify/receive-code/",
+    "redirect_uri": SPOTIFY_REDIRECT_URI,
     "client_id": SPOTIFY_CLIENT_ID,
     "client_secret": SPOTIFY_CLIENT_SECRET
   }

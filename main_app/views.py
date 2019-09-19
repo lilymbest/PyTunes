@@ -13,6 +13,13 @@ class PlaylistCreate(CreateView):
     fields = ['name', 'description']
     success_url = '/accounts/profile'
 
+    def form_valid(self, form):
+        # Assign the logged in user (self.request.user)
+        profile = Profile.objects.get(user=self.request.user)
+        form.instance.profile = profile
+        print(form)
+        return super().form_valid(form)
+
 class PlaylistDelete(DeleteView):
     model = Playlist
     success_url = '/accounts/profile'
@@ -34,8 +41,7 @@ def home(request):
 def playlist_details(request, playlist_id):
     profile = Profile.objects.get(user=request.user)
     playlist = Playlist.objects.get(id=playlist_id)
-    playlists = Playlist.objects.all()
-    return render(request, 'main_app/playlist_detail.html', {'playlist': playlist, 'profile': profile, 'playlists': playlists })
+    return render(request, 'main_app/playlist_detail.html', {'playlist': playlist, 'profile': profile})
 
 @login_required
 def discover(request):
@@ -70,7 +76,6 @@ def discover(request):
 
 @login_required
 def profile(request):
-    playlists = Playlist.objects.all()
     profile = Profile.objects.get(user=request.user)
     return render(request, 'registration/profile.html', { 'profile': profile, 'playlists': playlists })
 

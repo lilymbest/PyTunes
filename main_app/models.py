@@ -41,4 +41,4 @@ class Playlist(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=300)
     profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
-    track = models.ForeignKey(Track,  on_delete=models.SET_NULL, null=True)
+    tracks = models.ManyToManyField(Track)

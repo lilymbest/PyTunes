@@ -16,6 +16,7 @@ class PlaylistCreate(CreateView):
 class PlaylistDelete(DeleteView):
     model = Playlist
     success_url = 'home'
+    
 # Create your views here.
 def base(request):
     profile = Profile.objects.get(user=request.user)

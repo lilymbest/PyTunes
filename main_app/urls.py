@@ -9,6 +9,7 @@ urlpatterns = [
   path('mymusic/create/', views.PlaylistCreate.as_view(), name='playlist_create'),
   path('mymusic/<playlist_id>/', views.playlist_details, name="playlist_details"),
   path('mymusic/playlist/<int:pk>/', views.PlaylistDelete.as_view(), name='playlist_delete'),
+  path('mymusic/playlist/<int:pk>/update', views.PlaylistUpdate.as_view(), name='playlist_update'),
   path('mymusic/favorite_tracks', views.favorite_tracks, name="favorite_tracks"),
   path('mymusic/favorite_tracks/', views.favorite_tracks, name="favorite_tracks"),
   path('accounts/profile/', views.profile, name='profile'),

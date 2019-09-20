@@ -5,10 +5,17 @@ from django.views.generic import ListView, DetailView
 
 SPOTIFY_CLIENT_ID = os.environ['SPOTIFY_CLIENT_ID']
 SPOTIFY_CLIENT_SECRET = os.environ['SPOTIFY_CLIENT_SECRET']
-SPOTIFY_REDIRECT_URI_ENCODED = 'https%3A%2F%2Fpy-tunes.herokuapp.com%2Fspotify%2Freceive-code%2F'
-SPOTIFY_REDIRECT_URI = 'https://py-tunes.herokuapp.com/spotify/receive-code/'
+
+# redirect URIs for local development
+SPOTIFY_REDIRECT_URI_ENCODED = 'http%3A%2F%2Flocalhost%3A8000%2Fspotify%2Freceive-code%2F'
+SPOTIFY_REDIRECT_URI = 'http://localhost:8000/spotify/receive-code/'
+
+# redirect URIs for heroku deployment
+# SPOTIFY_REDIRECT_URI_ENCODED = 'https%3A%2F%2Fpy-tunes.herokuapp.com%2Fspotify%2Freceive-code%2F'
+# SPOTIFY_REDIRECT_URI = 'https://py-tunes.herokuapp.com/spotify/receive-code/'
 
 
+# refreshes access token on user login
 def renew_token(request):
   profile = Profile.objects.get(user=request.user)
   renew_url = 'https://accounts.spotify.com/api/token'
@@ -24,14 +31,14 @@ def renew_token(request):
   profile.save()
   return redirect('profile')
 
-
+# sends initial OAuth request to spotify to link spotify user account to this app
 def link_user(request):
   scope = 'user-read-private+user-read-email'
   redirect_url = SPOTIFY_REDIRECT_URI_ENCODED
   URL = f'https://accounts.spotify.com/authorize?response_type=code&client_id={SPOTIFY_CLIENT_ID}&scope={scope}&redirect_uri={redirect_url}&show_dialog=true'
   return redirect(URL)
 
-
+# receives authorization code from spotify and saves refresh token and user info to DB
 def handle_code(request):
   code = request.META['QUERY_STRING'][5:] 
   token_url = 'https://accounts.spotify.com/api/token'
@@ -54,7 +61,7 @@ def handle_code(request):
   createProfile(r, spotify_user_info, request.user)
   return redirect('profile')
 
-
+# creates profile instance
 def createProfile(token_responce, user_info, user):
   if len(user_info['images']) > 0:
     image = user_info['images'][0]['url']
@@ -74,7 +81,7 @@ def createProfile(token_responce, user_info, user):
 
 
 
-
+# makes API request to spotify for specific track info
 def save_track(request):
   body = request.POST
   track_id = body['track_id']
@@ -92,7 +99,7 @@ def save_track(request):
   return redirect('profile')
 
 
-
+# saves track info to DB
 def createTrack(data):    
   track = Track(
     name = data['name'],

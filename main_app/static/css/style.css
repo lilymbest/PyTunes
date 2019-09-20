@@ -35,10 +35,14 @@ nav {
     flex-direction:row;
     justify-content:space-between;
     align-items:right;
-    padding: 10px;
+    /* padding: 10px; */
     margin: 10px;
     text-align:right;
 } 
+.search {
+    display:grid;
+    justify-content: flex-end;
+}
 
 a.left.brand-logo {
     text-decoration: none;
@@ -126,13 +130,13 @@ div.card {
     font-size:small;
 }
 div.card-profile {
-    box-shadow:5px 10px;
+    box-shadow:5px 10px grey;
     text-align: center;
     margin: 0px;
     width: 200px;
     height: 200px;
     font-size:large;
-    background-color:aqua;
+    background-color: darkslategrey;
 }
 
 h1 {

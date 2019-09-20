@@ -56,6 +56,11 @@ i#circle.large.material-icons {
 main {
     align-self: center;
 }
+div.discover-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 div.signin {
     background-color: #d2a3ee;
@@ -97,6 +102,10 @@ div.card {
     width: 200px;
     height: 200px;
     font-size:small;
+}
+
+#audio control {
+    height: 200px;
 }
 
 h1 {

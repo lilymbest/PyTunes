@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+
 {% block content %}
+<div class="discover-container">
+
 
 {% if type == 'album' %}
 {% for item in results.items %}
@@ -59,4 +62,5 @@
 </div>
 {% endfor %}
 {% endif %}
+</div>
 {% endblock %}

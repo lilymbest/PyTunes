@@ -85,7 +85,7 @@ audio {
     margin-left: inherit;
     align-self:center;
     height: 20px;
-    width:190px;
+    width:200px;
 }
 
 div.signin {
@@ -137,6 +137,16 @@ div.card-profile {
     height: 200px;
     font-size:large;
     background-color: darkslategrey;
+}
+
+div.card-playlist {
+    background-color: #d2a3ee;
+    color: black;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 80px;
+    box-shadow:5px 10px lightgrey;
 }
 
 h1 {

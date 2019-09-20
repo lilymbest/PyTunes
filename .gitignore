@@ -3,5 +3,3 @@ spotipy-test.py
 temp-data/
 musicdb/main_app/__pycache__
 __pycache__
-Procfile
-requirements.txt

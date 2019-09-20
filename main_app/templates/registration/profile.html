@@ -7,7 +7,7 @@
 <main class="collection">
     {% for playlist in playlists %}
     <a href="{% url 'playlist_details' playlist.id %}">
-        <div class="card">
+        <div class="card-profile">
         <div class="card-content">
             <span class="card-title">{{ playlist.name }}</span>
                 <p>{{ playlist.description }}</p>

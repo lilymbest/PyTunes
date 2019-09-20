@@ -77,7 +77,8 @@ def discover(request):
 @login_required
 def profile(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'registration/profile.html', { 'profile': profile })
+    playlists = Playlist.objects.filter(profile=profile)
+    return render(request, 'registration/profile.html', { 'profile': profile, 'playlists': playlists })
 
 def signup(request):
     error_message = ''

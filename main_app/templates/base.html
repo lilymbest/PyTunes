@@ -20,6 +20,8 @@
           <ul>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             </ul>
+      </div>
+      <div class="search">
             <form action="/discover/" method="post">
               {% csrf_token %}
               <select name="type" id="type">
@@ -30,10 +32,14 @@
               <input type="text" name="query" autocomplete="off" required>
               <button type="submit">Search</button>
               </form>
+      </div>
+      <div class="playlist">
               <ul>
                 <li><a href="{% url 'playlist_create' %}">New Playlist</a></li>
               </ul>
+            </div>
         {% else %}
+        <div class="pytunes">
         <ul>
             <li><a href="{% url 'home' %}" class="left brand-logo">PyTunes</a></li>
           </ul>

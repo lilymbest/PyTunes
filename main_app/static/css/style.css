@@ -10,7 +10,10 @@ main {
 }
   
 footer {
-    padding-top: 0;
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     text-align: right;
     background-color: #d2a3ee;
 }
@@ -23,9 +26,22 @@ li {
 nav {
     background-color: #d2a3ee;
     display: grid;
-    grid-template-columns: 25vmin auto 25vmin 25vmin;
-    border-radius: 20px;
-    
+    /* grid-template-columns: 25vmin auto 25vmin 25vmin; */
+    border-radius: 20px;  
+}
+.nav-wrapper {
+    /*   background-color:black; */
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:right;
+    /* padding: 10px; */
+    margin: 10px;
+    text-align:right;
+} 
+.search {
+    display:grid;
+    justify-content: flex-end;
 }
 
 a.left.brand-logo {
@@ -52,6 +68,24 @@ i#circle.large.material-icons {
 
 main {
     align-self: center;
+}
+div.discover-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* main.collection {
+    background-color: #d2a3ee;
+} */
+
+audio {
+    margin-top: 150px;
+    margin-bottom: 10px;
+    margin-left: inherit;
+    align-self:center;
+    height: 20px;
+    width:190px;
 }
 
 div.signin {
@@ -88,11 +122,21 @@ a.add-song {
 }
 
 div.card {
-    background-color: #d2a3ee;
+    box-shadow:5px 10px;
     text-align: center;
-    margin: 20px;
-    width: 300px;
-    height: 300px;
+    margin: 80px;
+    width: 200px;
+    height: 200px;
+    font-size:small;
+}
+div.card-profile {
+    box-shadow:5px 10px grey;
+    text-align: center;
+    margin: 0px;
+    width: 200px;
+    height: 200px;
+    font-size:large;
+    background-color: darkslategrey;
 }
 
 h1 {
@@ -124,7 +168,7 @@ div.sidenav {
     overflow-x: hidden;
     padding: 8px 0;
     margin-top: 130px;
-  }
+  } 
   
 div.sidenav a {
     padding: 6px 8px 6px 16px;

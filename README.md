@@ -6,13 +6,14 @@
 ___
 PyTunes is a app to discover new underground music and create playlists.
 
+
 ### User Stories
 ___
 - AAU When I log in I would like to see my profile with my playlists
 - AAU I want to be able to follow my friends and listen to their playlists.
 - AAU I want to be able to link my spotify account.
-- AAU I want to be able to upload my own music.
-- AAU I want to be able to update edit and delete my playlists.
+- AAU I want to be able to update my playlists.
+- AAU I want to be able to delete my playlists.
 
 ### Stretch Goals
 ___
@@ -39,3 +40,11 @@ ___
 - HTML
 - CSS
 - Materialize
+
+### Final Product
+___
+![Final](main_app/static/images/final1.png)
+
+![Final2](main_app/static/images/file2.png)
+
+[Try It Out!](https://py-tunes.herokuapp.com/)
